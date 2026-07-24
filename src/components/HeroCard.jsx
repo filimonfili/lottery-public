@@ -39,7 +39,8 @@ function HeroCard({ draw, slots = [], filter, setFilter }) {
       <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl" />
       <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-purple-500/20 blur-3xl" />
 
-      <div className="relative z-10 p-8">
+      <div className="relative z-10 px-5 py-6 md:p-8">
+        {" "}
         {/* Header */}
         <div className="flex items-center gap-4">
           <div className="rounded-2xl bg-yellow-400 p-3 shadow-lg">
@@ -47,67 +48,63 @@ function HeroCard({ draw, slots = [], filter, setFilter }) {
           </div>
 
           <div>
-            <p className="text-sm text-white/70">Current Lucky Draw</p>
+            <p className="text-sm text-white/70">ህሉው ዕድለኛ ዕጫ</p>
 
             <h1 className="mt-1 text-3xl font-black text-white md:text-5xl">
               {draw.title}
             </h1>
           </div>
         </div>
-
         {/* Prize */}
         <div className="mt-8 rounded-3xl border border-yellow-400/20 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 p-6">
-          <p className="text-sm font-medium text-yellow-300">🏆 Grand Prize</p>
+          <p className="text-sm font-medium text-yellow-300">🏆 ዓቢ ሽልማት</p>
 
           <h2 className="mt-2 text-4xl font-black text-white">
             ETB {draw.prize.toLocaleString()}
           </h2>
         </div>
-
         {/* Ticket */}
         <div className="mt-4 rounded-3xl border border-white/10 bg-white/10 p-5">
-          <p className="text-sm text-white/60">🎟 Ticket Price</p>
+          <p className="text-sm text-white/60">🎟 ዋጋ ትኬት</p>
 
           <h3 className="mt-2 text-2xl font-bold text-white">
             ETB {draw.ticketPrice}
           </h3>
         </div>
-
         {/* Filter Cards */}
         <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
           <StatCard
-            title="All"
+            title="ጠቅላላ"
             value={draw.totalSlots}
             active={filter === "all"}
             onClick={() => setFilter("all")}
           />
 
           <StatCard
-            title="Available"
+            title="ዘይተቆረጹ"
             value={available}
             active={filter === "available"}
             onClick={() => toggleFilter("available")}
           />
 
           <StatCard
-            title="Pending"
+            title="ኣብ ከይዲ"
             value={pending}
             active={filter === "pending"}
             onClick={() => toggleFilter("pending")}
           />
 
           <StatCard
-            title="Booked"
+            title="ተታሓዚኡ"
             value={booked}
             active={filter === "booked"}
             onClick={() => toggleFilter("booked")}
           />
         </div>
-
         {/* Progress */}
         <div className="mt-8">
           <div className="mb-2 flex items-center justify-between text-sm text-white/70">
-            <span>Draw Progress</span>
+            <span>ምዕባለ ስኣል</span>
 
             <span>
               {booked + pending} / {draw.totalSlots}

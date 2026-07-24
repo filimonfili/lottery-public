@@ -155,8 +155,8 @@ function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-950 via-indigo-900 to-purple-900">
       <div
-        className={`mx-auto max-w-7xl px-5 pt-8 transition-all duration-300 ${
-          selectedSlots.length > 0 ? "pb-70" : "pb-8"
+        className={`mx-auto max-w-7xl px-4 pt-4 md:px-5 md:pt-8 transition-all duration-300 ${
+          selectedSlots.length > 0 ? "pb-72" : "pb-8"
         }`}
       >
         <HeroCard
@@ -165,6 +165,28 @@ function Home() {
           filter={filter}
           setFilter={setFilter}
         />
+
+        {/* Scroll Hint */}
+        <div className="mt-6 mb-6 flex flex-col items-center animate-bounce">
+          <p className="text-sm text-white/70">
+            👇 ዕድለኛ ቁጽርኻ ንምምራጽ ንታሕቲ ስክሮል ግበሩ
+          </p>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="mt-2 h-6 w-6 text-cyan-300"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
 
         <SlotGrid
           slots={filteredSlots}

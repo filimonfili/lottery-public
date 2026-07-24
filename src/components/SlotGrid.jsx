@@ -6,9 +6,7 @@ function SlotGrid({ slots, search, setSearch, onSelectSlot, selectedSlots }) {
   return (
     <div className="mt-10">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <h2 className="text-2xl font-bold text-white">
-          Choose Your Lucky Number
-        </h2>
+        <h2 className="text-2xl font-bold text-white">ዕድለኛ ቁጽርኻ ምረጽ</h2>
 
         <div className="relative w-full md:w-80">
           <MagnifyingGlassIcon className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/60" />
@@ -17,7 +15,7 @@ function SlotGrid({ slots, search, setSearch, onSelectSlot, selectedSlots }) {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search slot..."
+            placeholder="ናይ መድለዪ ቦታ"
             className="
               w-full
               rounded-2xl
@@ -38,7 +36,7 @@ function SlotGrid({ slots, search, setSearch, onSelectSlot, selectedSlots }) {
       </div>
 
       <p className="mt-3 text-sm text-white/60">
-        Showing {slots.length} slot{slots.length !== 1 && "s"}
+        {slots.length} ዕጻ{slots.length !== 1 && ""}
       </p>
 
       <div
