@@ -3,8 +3,8 @@ import { TrophyIcon } from "@heroicons/react/24/solid";
 function HeroCard({ draw, slots = [], filter, setFilter }) {
   if (!draw) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-violet-950 via-indigo-900 to-purple-900 flex items-center justify-center">
-        <div className="rounded-3xl border border-white/20 bg-white/10 p-10 backdrop-blur-3xl text-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-950 via-indigo-900 to-purple-900">
+        <div className="rounded-3xl border border-white/20 bg-white/10 p-10 text-center backdrop-blur-3xl">
           <h1 className="text-4xl font-black text-white">
             🎉 Current Draw Finished
           </h1>
@@ -22,9 +22,7 @@ function HeroCard({ draw, slots = [], filter, setFilter }) {
   }
 
   const available = slots.filter((slot) => slot.status === "available").length;
-
   const pending = slots.filter((slot) => slot.status === "pending").length;
-
   const booked = slots.filter((slot) => slot.status === "booked").length;
 
   const progress = ((booked + pending) / draw.totalSlots) * 100;
@@ -34,12 +32,12 @@ function HeroCard({ draw, slots = [], filter, setFilter }) {
   };
 
   return (
-    <section className="relative overflow-hidden rounded-[32px] border border-white/20 bg-white/10 backdrop-blur-3xl shadow-2xl">
+    <section className="relative overflow-hidden rounded-[32px] border border-white/20 bg-white/10 shadow-2xl backdrop-blur-3xl">
       {/* Background Glow */}
-      <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl" />
+      <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl" />
       <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-purple-500/20 blur-3xl" />
 
-      <div className="relative z-10 px-5 py-6 md:p-8">
+      <div className="relative z-10 px-4 py-4 md:px-8 md:py-8">
         {" "}
         {/* Header */}
         <div className="flex items-center gap-4">
@@ -55,24 +53,28 @@ function HeroCard({ draw, slots = [], filter, setFilter }) {
             </h1>
           </div>
         </div>
-        {/* Prize */}
-        <div className="mt-8 rounded-3xl border border-yellow-400/20 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 p-6">
-          <p className="text-sm font-medium text-yellow-300">🏆 ዓቢ ሽልማት</p>
+        {/* Prize + Ticket */}
+        <div className="mt-6 flex gap-4">
+          <div className="flex-1 rounded-3xl border border-yellow-400/20 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 p-5">
+            <p className="text-xs md:text-sm font-medium text-yellow-300">
+              🏆 ዓቢ ሽልማት
+            </p>
 
-          <h2 className="mt-2 text-4xl font-black text-white">
-            ETB {draw.prize.toLocaleString()}
-          </h2>
-        </div>
-        {/* Ticket */}
-        <div className="mt-4 rounded-3xl border border-white/10 bg-white/10 p-5">
-          <p className="text-sm text-white/60">🎟 ዋጋ ትኬት</p>
+            <h2 className="mt-2 text-2xl font-black text-white md:text-4xl">
+              ETB {draw.prize.toLocaleString()}
+            </h2>
+          </div>
 
-          <h3 className="mt-2 text-2xl font-bold text-white">
-            ETB {draw.ticketPrice}
-          </h3>
+          <div className="flex-1 rounded-3xl border border-white/10 bg-white/10 p-5">
+            <p className="text-xs md:text-sm text-white/60">🎟 ዋጋ ትኬት</p>
+
+            <h3 className="mt-2 text-2xl font-bold text-white md:text-3xl">
+              ETB {draw.ticketPrice}
+            </h3>
+          </div>
         </div>
         {/* Filter Cards */}
-        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
           <StatCard
             title="ጠቅላላ"
             value={draw.totalSlots}
@@ -102,7 +104,7 @@ function HeroCard({ draw, slots = [], filter, setFilter }) {
           />
         </div>
         {/* Progress */}
-        <div className="mt-8">
+        <div className="mt-6">
           <div className="mb-2 flex items-center justify-between text-sm text-white/70">
             <span>ምዕባለ ስኣል</span>
 
@@ -129,22 +131,11 @@ function StatCard({ title, value, active, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`
-        rounded-3xl
-        border
-        p-5
-        text-left
-        backdrop-blur-xl
-        transition-all
-        duration-300
-        hover:scale-105
-        active:scale-95
-        ${
-          active
-            ? "border-cyan-400 bg-cyan-500 shadow-xl"
-            : "border-white/10 bg-white/10 hover:bg-white/20"
-        }
-      `}
+      className={`rounded-3xl border p-5 text-left backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 ${
+        active
+          ? "border-cyan-400 bg-cyan-500 shadow-xl"
+          : "border-white/10 bg-white/10 hover:bg-white/20"
+      }`}
     >
       <p className="text-sm text-white/70">{title}</p>
 
