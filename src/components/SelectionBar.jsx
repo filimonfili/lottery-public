@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
-function SelectionBar({ selectedSlots, ticketPrice, onContinue }) {
+function SelectionBar({ selectedSlots, ticketPrice, onContinue, onClear }) {
   if (selectedSlots.length === 0) return null;
 
   const sortedSlots = [...selectedSlots].sort((a, b) => a - b);
@@ -29,7 +29,7 @@ function SelectionBar({ selectedSlots, ticketPrice, onContinue }) {
         {/* Left Side */}
         <div className="flex-1">
           <p className="text-sm text-white/60">
-            {selectedSlots.length} Selected Number
+            {selectedSlots.length} ዝተመርጸ ቁጽሪ
             {selectedSlots.length > 1 && "s"}
           </p>
 
@@ -57,7 +57,7 @@ function SelectionBar({ selectedSlots, ticketPrice, onContinue }) {
           {/* Total */}
           <div className="mt-4">
             <p className="text-xs uppercase tracking-wide text-white/50">
-              Total Price
+              ጠቕላላ ዋጋ
             </p>
 
             <p className="text-2xl font-bold text-cyan-300">
@@ -66,31 +66,57 @@ function SelectionBar({ selectedSlots, ticketPrice, onContinue }) {
           </div>
         </div>
 
-        {/* Continue Button */}
-        <button
-          onClick={onContinue}
-          className="
-            flex
-            items-center
-            justify-center
-            gap-2
-            rounded-2xl
-            bg-cyan-500
-            px-6
-            py-4
-            font-bold
-            text-white
-            transition-all
-            duration-300
-            hover:bg-cyan-600
-            hover:scale-105
-            active:scale-95
-            md:min-w-[180px]
-          "
-        >
-          Continue
-          <ArrowRightIcon className="h-5 w-5" />
-        </button>
+        {/* Buttons */}
+        <div className="flex items-center gap-3 md:min-w-[240px]">
+          <button
+            onClick={onClear}
+            className="
+              flex
+              h-14
+              w-14
+              shrink-0
+              items-center
+              justify-center
+              rounded-2xl
+              border
+              border-red-400/30
+              bg-red-500/20
+              text-white
+              transition-all
+              duration-300
+              hover:bg-red-500
+              hover:scale-105
+              active:scale-95
+            "
+          >
+            ✕
+          </button>
+
+          <button
+            onClick={onContinue}
+            className="
+              flex
+              flex-1
+              items-center
+              justify-center
+              gap-2
+              rounded-2xl
+              bg-cyan-500
+              px-6
+              py-4
+              font-bold
+              text-white
+              transition-all
+              duration-300
+              hover:bg-cyan-600
+              hover:scale-105
+              active:scale-95
+            "
+          >
+            ቀፅል
+            <ArrowRightIcon className="h-5 w-5" />
+          </button>
+        </div>
       </div>
     </div>
   );

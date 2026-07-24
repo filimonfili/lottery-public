@@ -216,6 +216,7 @@ function Home() {
         selectedSlots={selectedSlots}
         ticketPrice={draw?.ticketPrice || 0}
         onContinue={handleContinue}
+        onClear={() => setSelectedSlots([])}
       />
     </div>
   );
