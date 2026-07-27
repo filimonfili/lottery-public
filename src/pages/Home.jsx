@@ -104,22 +104,20 @@ function Home() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-violet-950 via-indigo-900 to-purple-900 flex items-center justify-center px-4">
         <div className="max-w-xl w-full rounded-[32px] border border-white/20 bg-white/10 backdrop-blur-3xl p-10 text-center">
-          <h1 className="text-4xl font-black text-white">🎉 Draw Completed</h1>
+          <h1 className="text-4xl font-black text-white">🎉 ዕጫ ተዛዚሙ</h1>
 
-          <p className="mt-4 text-white/70">Thank you for participating.</p>
+          <p className="mt-4 text-white/70">ስለ ዝተሳተፍኩም የቐንየልና።</p>
 
           {previousDraw?.winner?.slotNumber ? (
             <>
               <div className="mt-8 rounded-3xl bg-yellow-500/10 border border-yellow-400/20 p-6">
-                <p className="text-yellow-300 text-sm uppercase">
-                  Winning Number
-                </p>
+                <p className="text-yellow-300 text-sm uppercase">ቁጽሪ ተዓዋቲ</p>
 
                 <h2 className="mt-3 text-6xl font-black text-white">
                   #{previousDraw.winner.slotNumber}
                 </h2>
 
-                <p className="mt-4 text-white/70">Congratulations</p>
+                <p className="mt-4 text-white/70">እንኳዕ ሓጎሰካ/ኪ</p>
 
                 <h3 className="mt-2 text-2xl font-bold text-cyan-300">
                   {previousDraw.winner.name}
@@ -128,15 +126,11 @@ function Home() {
             </>
           ) : (
             <div className="mt-8 rounded-3xl border border-white/20 bg-white/5 p-6">
-              <p className="text-white/70">
-                🏆 The winner will be announced soon.
-              </p>
+              <p className="text-white/70">🏆 ተዓዋቲ ኣብ ቀረባ እዋን ክግለጽ እዩ።</p>
             </div>
           )}
 
-          <p className="mt-8 text-white/50">
-            Please wait for the next lucky draw.
-          </p>
+          <p className="mt-8 text-white/50">ንዝቕጽል ዕድለኛ ዕጫ ተጸበዩ።</p>
         </div>
       </div>
     );
